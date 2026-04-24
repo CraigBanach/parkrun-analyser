@@ -1,0 +1,10 @@
+[package]
+name = "parkrun-analyser"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[[bin]]
+name = "parkrun-analyser"
+path = "parkrun-analyser.rs"
