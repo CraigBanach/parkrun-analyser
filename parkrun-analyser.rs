@@ -1,19 +1,45 @@
 use std::env;
+use std::error::Error;
 use std::fs::File;
-use std::io;
 use std::io::BufRead;
 use std::io::BufReader;
+use std::process;
 
-fn main() -> io::Result<()> {
+fn main() {
     let args: Vec<String> = env::args().collect();
 
-    let file_path = &args[1];
+    let config = Config::build(&args).unwrap_or_else(|err| {
+        println!("Problem parsing arguments: {err}");
+        process::exit(1);
+    });
 
-    let f = File::open(file_path)?;
+    if let Err(e) = run(config) {
+        println!("Application error: {e}");
+        process::exit(1);
+    }
+}
+
+fn run(config: Config) -> Result<(), Box<dyn Error>> {
+    let f = File::open(config.file_path)?;
     let reader = BufReader::new(f);
 
     for line in reader.lines() {
         println!("{}", line?);
     }
     Ok(())
+}
+
+struct Config {
+    file_path: String,
+}
+
+impl Config {
+    fn build(args: &[String]) -> Result<Config, &'static str> {
+        if args.len() < 2 {
+            return Err("not enough arguments");
+        }
+        let file_path = args[1].clone();
+
+        Ok(Config { file_path })
+    }
 }
