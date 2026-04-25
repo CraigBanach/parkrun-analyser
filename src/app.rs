@@ -1,14 +1,10 @@
-use crate::config::Config;
 use std::error::Error;
-use std::fs::File;
-use std::io::BufRead;
-use std::io::BufReader;
+
+use crate::config::Config;
+use crate::io::file_lines;
 
 pub(crate) fn run(config: &Config) -> Result<(), Box<dyn Error>> {
-    let f = File::open(config.file_path())?;
-    let reader = BufReader::new(f);
-
-    for line in reader.lines() {
+    for line in file_lines(config.file_path())? {
         println!("{}", line?);
     }
     Ok(())

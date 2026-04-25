@@ -5,6 +5,7 @@ use std::process;
 
 mod app;
 mod config;
+mod io;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
