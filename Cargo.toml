@@ -7,4 +7,4 @@ edition = "2024"
 
 [[bin]]
 name = "parkrun-analyser"
-path = "parkrun-analyser.rs"
+path = "src/main.rs"
