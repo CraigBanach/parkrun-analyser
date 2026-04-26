@@ -1,0 +1,19 @@
+date,event,run_number,position,time,age_grade,pb
+2026-04-11,Lochore Meadows,307,118,37:59,34.36,false
+bad-utf8-1,Lochore Meadows,306,120,38:02,34.20,false,
+ÿ
+2026-03-21,Lochore Meadows,304,124,34:53,37.41,false
+bad-utf8-2,Dunfermline,303,128,35:40,36.50,false,
+þ
+2026-03-07,Lochore Meadows,302,131,35:47,36.33,false
+bad-utf8-3,Lochore Meadows,301,112,38:21,33.90,false,
+ø
+2026-02-21,Lochore Meadows,300,129,34:06,38.12,false
+bad-utf8-4,Lochore Meadows,299,79,38:42,33.59,false,
+ÿþ
+2026-01-24,Lochore Meadows,297,121,34:43,37.45,false
+bad-utf8-5,Dunfermline,296,134,36:13,35.90,false,
+Ã(
+2026-01-03,Dunfermline,295,215,38:11,34.05,false
+bad-utf8-6,Lochore Meadows,294,84,37:31,34.65,false,
+ ¡

@@ -94,6 +94,20 @@ It is not intended to be a full training platform or a clone of any existing fit
 - CSV parsing
 - lightweight CLI ergonomics
 
+## Testing
+
+Run the full test suite:
+
+```bash
+cargo test
+```
+
+Run only the integration tests for the current `io` streaming behavior:
+
+```bash
+cargo test --test io_integration
+```
+
 ## Development principles
 
 - keep the scope tight

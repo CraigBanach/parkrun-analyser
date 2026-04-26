@@ -1,11 +1,14 @@
 use std::error::Error;
 
 use crate::config::Config;
-use crate::io::file_lines;
+use crate::io::{RowOutcome, row_outcomes};
 
 pub(crate) fn run(config: &Config) -> Result<(), Box<dyn Error>> {
-    for line in file_lines(config.file_path())? {
-        println!("{}", line?);
+    for outcome in row_outcomes(config.file_path())? {
+        match outcome {
+            RowOutcome::Record(line) => println!("{}", line),
+            RowOutcome::Warning(msg) => println!("warning: {}", msg),
+        }
     }
     Ok(())
 }
